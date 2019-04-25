@@ -1,0 +1,148 @@
+#include <Adafruit_NeoPixel.h>
+
+#define Pixel 10
+int potPin = A0;
+
+
+Adafruit_NeoPixel strip(12, Pixel, NEO_RGB + NEO_KHZ800);
+uint32_t grn = strip.Color(255, 0, 0);
+uint32_t red = strip.Color(0, 255, 0);
+uint32_t blu = strip.Color(0, 0, 255);
+uint32_t whi = strip.Color(255, 255, 255);
+
+
+
+
+void setup() {
+  
+  strip.begin();
+  strip.setBrightness(8);
+  strip.show();
+  Serial.begin(9600);
+  
+
+}
+
+void loop() {
+  
+  int I = analogRead(A0);
+  I = map(I, 0, 1023, 0, 12);
+  
+  Serial.println(I);
+  delay(1);
+  
+
+switch (I) {
+  
+  case 0:
+  strip.begin();
+  strip.clear();
+  strip.show();
+  break;
+  
+  case 1:
+   strip.begin();
+   strip.fill(blu, 0, 1);
+   strip.show();
+   strip.clear();
+   break;
+
+ case 2:
+  strip.begin();
+  strip.fill(blu, 0, 2);
+  strip.show();
+  strip.clear();
+  break;
+
+  case 3:
+  strip.begin();
+  strip.fill(blu, 0, 3);
+  strip.show();
+  strip.clear();
+  break;
+
+  case 4:
+  strip.begin();
+  strip.fill(blu, 0, 4);
+  strip.show();
+  strip.clear();
+  break;
+
+  case 5:
+  strip.begin();
+  strip.fill(blu, 0, 4);
+  strip.fill(grn, 4, 1);
+  strip.show();
+  strip.clear();
+  break;
+
+  case 6:
+  strip.begin();
+  strip.fill(blu, 0, 4);
+  strip.fill(grn, 4, 2);
+  strip.show();
+  strip.clear();
+  break;
+
+  case 7:
+  strip.begin();
+  strip.fill(blu, 0, 4);
+  strip.fill(grn, 4, 3);
+  strip.show();
+  strip.clear();
+  break;
+
+  case 8:
+  strip.begin();
+  strip.fill(blu, 0, 4);
+  strip.fill(grn, 4, 4);
+  strip.show();
+  strip.clear();
+  break;
+
+  case 9:
+  strip.begin();
+  strip.fill(blu, 0, 4);
+  strip.fill(grn, 4, 4);
+  strip.fill(red, 8, 1);
+  strip.show();
+  strip.clear();
+  break;
+
+  
+  case 10:
+  strip.begin();
+  strip.fill(blu, 0, 4);
+  strip.fill(grn, 4, 4);
+  strip.fill(red, 8, 2);
+  strip.show();
+  strip.clear();
+  break;
+
+  
+  case 11:
+  strip.begin();
+  strip.fill(blu, 0, 4);
+  strip.fill(grn, 4, 4);
+  strip.fill(red, 8, 3);
+  strip.show();
+  strip.clear();
+  break;
+
+   case 12:
+  strip.begin();
+  strip.fill(blu, 0, 4);
+  strip.fill(grn, 4, 4);
+  strip.fill(red, 8, 4);
+  strip.show();
+  strip.clear();
+  break;
+
+     
+}
+}
+
+
+
+
+  
